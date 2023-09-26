@@ -1,0 +1,19 @@
+:root {
+    --font-default: 'Roboto', sans-serif;
+  }
+  * {
+    font-family: var(--font-default);
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    color:#fff;
+  } 
+  #root{
+    min-width: 1024px;
+    min-height: 780px;
+    position:relative;
+  }
