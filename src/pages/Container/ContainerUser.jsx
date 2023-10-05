@@ -4,19 +4,24 @@ import Styles from '../../styles/Profil.module.css'
 import BannerUser from "../../components/BannerUser"
 import Profil from '../../pages/Profil/Profil'
 import Activity from '../../components/Activity'
-import UserCompletion from '../../components/UserCompletion'
+// import UserCompletion from '../../components/UserCompletion'
 import AverageSessions from '../../components/AverageSessions'
 import Performance from '../../components/Performance'
 import { Context } from '../../components/Context';
 import Error from '../404/Error' 
 
 function ContainerUser(){
+    console.log("Banniere")
     const env = process.env.REACT_APP_API_DEV === "true"
     const {userId} = useParams()
+    console.log('userId:', userId)
     const {handleUserSelect } = useContext(Context);
+    // récupération de l'id de l'utilisateur choisi dans choiceUser ou dans l'url
     const [user, setUser]=useState('')
+    // récupération des datas de cet utilisateur
+
     console.log('userContainer:', user)
-    // stocker l'id une seule fois en mode PROD
+    // mise à jour de l'id du context une seule fois en mode PROD
     useEffect(()=>{
         if (!env && (!localStorage.getItem('userDefault') || localStorage.getItem('userDefault') === '')){
         localStorage.setItem('userDefault',userId)
@@ -33,7 +38,6 @@ function ContainerUser(){
         }
     },[userId, handleUserSelect, env])
 
-
     return (
         <div className={Styles.containerGlobal}>
             <BannerUser/>
@@ -41,7 +45,7 @@ function ContainerUser(){
                 <Routes >
                 {env ? (
                 <>
-                <Route path="/" element={<UserCompletion />} />
+                <Route path="/" element={<Profil/>} />
                 <Route path="/activity" element={<Activity />} />
                 <Route path="/average-sessions" element={<AverageSessions />} />
                 <Route path="/performance" element={<Performance />} />
