@@ -1,6 +1,6 @@
 import { LineChart, ResponsiveContainer,XAxis,YAxis,Tooltip,Line} from "recharts";
 import { fetchData } from "../../services/api";
-import { useContext, useState,useEffect } from "react";
+import { useContext, useState,useEffect} from "react";
 import { Context } from '../Context';
 import Styles from "../../styles/LineChart.module.css"
 import CustomToolTip from "./CustomToolTip";
@@ -21,8 +21,7 @@ function LineCharts(){
         return data[item]
       };
 
-  
-
+      
      return(
         <>
         <ResponsiveContainer width="100%" height="100%" className={Styles.container}>
@@ -31,14 +30,16 @@ function LineCharts(){
         height={250} 
         data={datas}
         margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-        <XAxis dataKey="day" axisLine={false} tickLine={false} tickFormatter={formatDay}/>
-        <YAxis hide domain={['dataMin-10', 'dataMax+10']} />
-        <Tooltip  content={<CustomToolTip/>} cursor={{fill: 'red', width:20}}/>
+        <XAxis dataKey="day" axisLine={false} tickLine={false} tickFormatter={formatDay} padding={{ right: -20, left: -10 }}/>
+        <YAxis hide domain={['dataMin-10', 'dataMax+10']}  />
+        {/* cursor={{ stroke : "rgba(0, 0, 0, 0.1)", strokeWidth : 100}}  */}
+        <Tooltip content={<CustomToolTip />} cursor={false}/>
         {/* Le point(billes) actif s'affiche lorsqu'un utilisateur entre dans un graphique linéaire et ce graphique comporte une info-bulle */}
-        <Line type="natural" dataKey="sessionLength" strokeWidth={2} stroke="#FFF" activeDot={{ stroke: '#FFF', strokeWidth: 4, r: 2 }} dot={false}/>
+        <Line type="natural" dataKey="sessionLength" strokeWidth={2} stroke="#FFF" activeDot={{ stroke: '#FFF', strokeWidth: 4, r: 2}} dot={false} />
         </LineChart>
         </ResponsiveContainer>
         </>
      )
 }
 export default LineCharts
+

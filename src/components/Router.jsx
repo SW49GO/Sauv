@@ -23,7 +23,7 @@ function Router(){
                     <Route exact path="/" element={<RedirectComponent/>} />
                     <Route path="/user/choiceUser" element={<ChoiceUser/>} />
                     <Route path="/user/:userId/*" element={<ContainerUser />} />
-                   <Route path="*" element={<Error />} />
+                    <Route path="*" element={<Error />} />
                 </Routes>
             </BrowserRouter>
 }

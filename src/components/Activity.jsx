@@ -1,8 +1,11 @@
+import BarCharts from "./BarChart/BarChart";
 
 function Activity(){
     return(
-        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, voluptates.ACTIVITY</div>
-    )
+        <>
+       <BarCharts/>
+        </>
+       )
 }
 
 export default Activity

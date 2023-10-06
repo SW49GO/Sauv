@@ -31,8 +31,8 @@ function BarCharts(){
                 <CartesianGrid strokeDasharray="3 3" vertical={false} />
                 {/* Fonction pour extraire le jour du mois : tickFormatter={(day) => new Date(day).getDate()*/}
                 {/* tick ->tiret */}
-                <XAxis dataKey="day" stroke="#9B9EAC" axisLine={true}  tickLine={false} tickFormatter={(day) => new Date(day).getDate()} tickMargin={15}/>
-                <YAxis type="number" stroke="#9B9EAC" axisLine={false} tickLine={false} tickMargin={30} domain={[0, 'dataMax + 10']}  orientation="right"/>
+                <XAxis dataKey="day" stroke="#9B9EAC" axisLine={true}  tickLine={false} tickFormatter={(day) => new Date(day).getDate()} tickMargin={15}  padding={{ right: -30, left: -30 }}/>
+                <YAxis type="number" stroke="#9B9EAC" axisLine={false} tickLine={false} tickCount='3' tickMargin={30} domain={['auto', 'dataMax + 20']}  orientation="right"/>
                 {/* Encars fond gris qui s'affiche au clic de la souris + sa légende */}
                 <Tooltip cursor={{ fill: 'rgba(196, 196, 196, 0.5)'}}  content={<CustomToolTip/>}/>
                 {/* Position légende rattaché au Bar */}
