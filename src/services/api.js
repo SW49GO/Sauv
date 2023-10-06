@@ -1,7 +1,7 @@
 import {USER_MAIN_DATA} from "../datasMock/datasMock"
-import {USER_ACTIVITY} from "../datasMock/datasMock"
-import {USER_AVERAGE_SESSIONS} from "../datasMock/datasMock"
-import {USER_PERFORMANCE} from "../datasMock/datasMock"
+// import {USER_ACTIVITY} from "../datasMock/datasMock"
+// import {USER_AVERAGE_SESSIONS} from "../datasMock/datasMock"
+// import {USER_PERFORMANCE} from "../datasMock/datasMock"
 
 const kindMapping = {
   'cardio': 'cardiovasculaire',
@@ -87,7 +87,7 @@ export async function fetchData(userId, setDatas, endpoint) {
         });
         console.log('TranslateDatas:', translatedData)
       // state avec les données changés
-      setDatas(translatedData);
+      setDatas(translatedData[0]);
         // setDatas(results.data)
       } 
       else if(endpoint === "average-sessions"){
